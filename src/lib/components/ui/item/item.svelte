@@ -10,7 +10,7 @@
 	const { class: className = '', onmouseenter, onmouseleave, children }: Props = $props();
 </script>
 
-<div class="py-2 {className}" {onmouseenter} {onmouseleave}>
+<div class="py-2 {className}" role="button" tabindex="0" {onmouseenter} {onmouseleave}>
 	{@render children?.()}
 </div>
 
