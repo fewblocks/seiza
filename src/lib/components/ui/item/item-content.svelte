@@ -1,11 +1,14 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
+
 	interface Props {
 		class?: string;
+		children?: Snippet;
 	}
 
-	const { class: className = '' }: Props = $props();
+	const { class: className = '', children }: Props = $props();
 </script>
 
 <div class="space-y-1 {className}">
-	<slot />
+	{@render children?.()}
 </div>
