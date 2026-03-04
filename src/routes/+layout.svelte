@@ -11,15 +11,17 @@
 		{ href: '/fortune-telling', title: '占い' },
 		{ href: '/profile', title: 'プロフィール' }
 	];
-
-	type NavItemProps = {
-		href: string;
-		title: string;
-		class?: string;
-	};
 </script>
 
-{#snippet NavItem({ href, title, class: className }: NavItemProps)}
+{#snippet NavItem({
+	href,
+	title,
+	class: className
+}: {
+	href: string;
+	title: string;
+	class?: string;
+})}
 	<Navigation.Item>
 		<Navigation.Link {href} class={className}>{title}</Navigation.Link>
 	</Navigation.Item>
