@@ -1,12 +1,11 @@
 export const prerender = true;
 
-import { base } from '$app/paths';
-
 export function GET() {
 	return new Response(null, {
 		status: 302,
 		headers: {
-			Location: base + '/favicon.svg'
+			// use a relative redirect so it resolves under the current base path
+			Location: 'favicon.svg'
 		}
 	});
 }

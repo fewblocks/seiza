@@ -29,7 +29,7 @@
 {/snippet}
 
 <svelte:head>
-	<link rel="icon" href={base + favicon} />
+	<link rel="icon" href={base + '/' + favicon} />
 </svelte:head>
 
 <StarryBackground />
