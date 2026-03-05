@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import { base } from '$app/paths';
 	import '../app.css';
 	import * as Navigation from '$lib/components/ui/navigation';
 	import StarryBackground from '$lib/components/ui/StarryBackground.svelte';
@@ -28,14 +29,14 @@
 {/snippet}
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={base + favicon} />
 </svelte:head>
 
 <StarryBackground />
 
 <Navigation.Root>
 	<Navigation.List>
-		{#each navItems as item}
+		{#each navItems as item (item.href)}
 			{@render NavItem({ href: item.href, title: item.title })}
 		{/each}
 	</Navigation.List>
