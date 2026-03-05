@@ -1,6 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
-	import { base } from '$app/paths';
+	import { withBase } from '$lib/utils';
 	import '../app.css';
 	import * as Navigation from '$lib/components/ui/navigation';
 	import StarryBackground from '$lib/components/ui/StarryBackground.svelte';
@@ -29,7 +29,7 @@
 {/snippet}
 
 <svelte:head>
-	<link rel="icon" href={favicon.startsWith('data:') ? favicon : base + favicon} />
+	<link rel="icon" href={withBase(favicon)} />
 </svelte:head>
 
 <StarryBackground />

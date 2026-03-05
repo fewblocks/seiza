@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { cn } from '$lib/utils';
+	import { cn, resolve } from '$lib/utils';
 
 	type $$Props = HTMLAttributes<HTMLAnchorElement> & {
 		href?: string;
@@ -12,7 +12,7 @@
 </script>
 
 <a
-	{href}
+	href={resolve(href)}
 	class={cn(
 		'w-full text-center block py-2 px-4 no-underline text-foreground hover:bg-accent transition-colors',
 		className

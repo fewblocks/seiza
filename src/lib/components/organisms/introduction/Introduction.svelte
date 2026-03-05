@@ -2,6 +2,7 @@
 	import imageKaiten from '$lib/assets/kaiten_description.png';
 	import imageArrow from '$lib/assets/arrow_description.png';
 	import imageKotei from '$lib/assets/kotei_description.png';
+	import { withBase } from '$lib/utils';
 	import * as Card from '$lib/components/ui/card';
 	import * as Item from '$lib/components/ui/item';
 
@@ -57,14 +58,18 @@
 				<div class="grid grid-cols-12 gap-6">
 					<div class="col-span-12 sm:col-span-6 aspect-square image-container">
 						<img
-							src={imageKaiten}
+							src={withBase(imageKaiten)}
 							alt="星座早見盤の下の円盤の説明図"
 							class="image-layer"
 							class:glowing={hoveredItem === 'kaiten'}
 						/>
-						<img src={imageArrow} alt="星座早見盤の矢印部分の説明図" class="image-layer" />
 						<img
-							src={imageKotei}
+							src={withBase(imageArrow)}
+							alt="星座早見盤の矢印部分の説明図"
+							class="image-layer"
+						/>
+						<img
+							src={withBase(imageKotei)}
 							alt="星座早見盤の固定部分の説明図"
 							class="image-layer"
 							class:glowing={hoveredItem === 'kotei'}

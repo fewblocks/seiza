@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { fortuneTellingData } from './data/fortune-telling-data.js';
+import { base } from '$app/paths';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -31,3 +32,19 @@ export type WithoutChild<T> = T extends { child?: any } ? Omit<T, 'child'> : T;
 export type WithoutChildren<T> = T extends { children?: any } ? Omit<T, 'children'> : T;
 export type WithoutChildrenOrChild<T> = WithoutChildren<WithoutChild<T>>;
 export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?: U | null };
+
+/**
+ * Prefix a path with the configured `base` unless it's an absolute URL or a data URL.
+ */
+export function withBase(path?: string | null) {
+	if (!path) return path;
+	if (path.startsWith('data:') || path.startsWith('http') || path.startsWith(base)) return path;
+	return base + (path.startsWith('/') ? path : '/' + path);
+}
+
+/**
+ * Compatibility wrapper named `resolve` for linters/rules that expect a `resolve()` call.
+ */
+export function resolve(path?: string | null) {
+	return withBase(path);
+}
