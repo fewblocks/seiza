@@ -5,17 +5,32 @@
 
 	// プロフィール情報（あとで実際の情報に書き換えてください）
 	const profile = {
-		name: 'Your Name',
-		title: 'Software Engineer',
-		company: '所属会社名',
-		bio: '自己紹介文をここに書いてください。あなたの経験やスキル、興味のある技術などを記載できます。',
-		github: 'https://github.com/yourusername',
-		twitter: 'https://twitter.com/yourusername',
-		zenn: 'https://zenn.dev/yourusername',
-		qiita: 'https://qiita.com/yourusername'
+		name: 'Tomoru Nishie',
+		title: 'Frontend, Backend Engineer',
+		bio: `今回始めてSvelteを触ってみました。題材は何にするか迷ったのですが...小学校の頃に配られた「星座早見盤」を作ってみました！
+日本天文学会が編集した『星座早見』が、1907年（明治40年）9月に初版発行されたのが最初とされているそうで、
+1950年代（昭和20年代後半〜30年代）になり、宇宙への関心が高まったことで、学校教育や一般向けに多様な製品が広く普及しました。
+そんな100年以上の長い歴史のあるアイテムを、最新のWeb技術で再現してみました。
+ぜひ色々触ってみてください！`,
+		github: 'https://github.com/fewblocks',
+		qiita: 'https://qiita.com/mark_posts_stocker'
 	};
 
-	const skills = ['JavaScript', 'TypeScript', 'Svelte', 'React', 'Node.js', 'Python'];
+	const skills = [
+		'JavaScript',
+		'TypeScript',
+		'jQuery',
+		'Svelte',
+		'Next.js',
+		'React',
+		'Vue',
+		'Node.js',
+		'Java',
+		'PHP',
+		'Laravel',
+		'MySQL',
+		'Git'
+	];
 
 	const links = [
 		{ title: 'GitHub', url: profile.github, icon: '💻' },
@@ -32,7 +47,8 @@
 	let skillsElement: HTMLDivElement;
 	let linksElement: HTMLDivElement;
 
-	function revealIn(node: Element): TransitionConfig {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	function revealIn(node: HTMLDivElement): TransitionConfig {
 		return {
 			duration: 700,
 			css: (t) => {
@@ -94,12 +110,8 @@
 							<Card.Description>{profile.title}</Card.Description>
 						</Card.Header>
 						<Card.Content>
-							<div class="mb-4">
-								<h3 class="text-lg font-semibold mb-2">所属</h3>
-								<p>{profile.company}</p>
-							</div>
 							<div>
-								<h3 class="text-lg font-semibold mb-2">自己紹介</h3>
+								<h3 class="text-lg font-semibold mb-2">本アプリケーションについて</h3>
 								<p class="text-muted-foreground">{profile.bio}</p>
 							</div>
 						</Card.Content>
@@ -118,7 +130,7 @@
 						</Card.Header>
 						<Card.Content>
 							<div class="skills-grid">
-								{#each skills as skill}
+								{#each skills as skill (skill)}
 									<span class="skill-tag">{skill}</span>
 								{/each}
 							</div>
@@ -139,7 +151,8 @@
 						</Card.Header>
 						<Card.Content>
 							<div class="links-grid">
-								{#each links as link}
+								{#each links as link (link.url)}
+									<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 									<a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
 										<span class="link-icon">{link.icon}</span>
 										<span class="link-title">{link.title}</span>

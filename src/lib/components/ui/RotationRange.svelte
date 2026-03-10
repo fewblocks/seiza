@@ -19,4 +19,16 @@
 	});
 </script>
 
-<Slider.Root bind:value={sliderValue} type="single" min={0} max={370} step={1} class="w-full" />
+<div class="w-full space-y-2">
+	<label for="rotation-range" class="block w-full text-center text-sm font-medium">⇚ slede! ⇛</label
+	>
+	<Slider.Root
+		id="rotation-range"
+		bind:value={sliderValue}
+		type="single"
+		min={0}
+		max={370}
+		step={1}
+		class="w-full"
+	/>
+</div>

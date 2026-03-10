@@ -12,6 +12,13 @@ const config = {
 		paths: {
 			base: process.env.BASE_PATH ?? ''
 		}
+	},
+	onwarn: (warning, handler) => {
+		// XSS警告を無視
+		if (warning.code === 'security-html-binding') {
+			return;
+		}
+		handler(warning);
 	}
 };
 

@@ -25,31 +25,34 @@
 </script>
 
 <div class="seiza-hayamiban-wrapper">
-	<div class="seiza-hayamiban">
-		<!-- rotating content -->
-		<KaitenContent image={kaitenImage} {angle}>
-			<!-- TODO: use → attachments に変更する -->
-			<div use:resize={handleKaitenWidth} style="width: 100%; height: 100%;">
-				<SvgContent {scale} {id} {angle} />
-			</div>
-		</KaitenContent>
-		<!-- sticky content -->
-		<StickyContent image={stickyImage} />
-		<!-- input range for rotation -->
+	<div class="seiza-hayamiban-container">
 		<div>
 			<RotationRange {angle} />
 		</div>
-		<!-- ポップアップ表示 -->
-		{#if $tooltipId}
-			<div
-				class="tooltip-popup"
-				in:fade={{ duration: 150 }}
-				out:fade={{ duration: 100 }}
-				style="left: {$tooltipX}px; top: {$tooltipY}px;"
-			>
-				{$tooltipText}
-			</div>
-		{/if}
+		<div class="seiza-hayamiban">
+			<!-- rotating content -->
+			<KaitenContent image={kaitenImage} {angle}>
+				<!-- TODO: use → attachments に変更する -->
+				<div use:resize={handleKaitenWidth} style="width: 100%; height: 100%;">
+					<SvgContent {scale} {id} {angle} />
+				</div>
+			</KaitenContent>
+			<!-- sticky content -->
+			<StickyContent image={stickyImage} />
+			<!-- input range for rotation -->
+
+			<!-- ポップアップ表示 -->
+			{#if $tooltipId}
+				<div
+					class="tooltip-popup"
+					in:fade={{ duration: 150 }}
+					out:fade={{ duration: 100 }}
+					style="left: {$tooltipX}px; top: {$tooltipY}px;"
+				>
+					{$tooltipText}
+				</div>
+			{/if}
+		</div>
 	</div>
 
 	<div class="seiza-result">
@@ -63,13 +66,18 @@
 		flex-direction: row;
 		align-items: flex-start;
 		justify-content: center;
-		margin-top: 20px;
+	}
+
+	.seiza-hayamiban-container {
+		display: flex;
+		flex-direction: column;
 	}
 
 	.seiza-hayamiban {
 		position: relative;
 		height: 620px;
 		width: 620px;
+		transform: scale(0.9, 0.9);
 	}
 
 	.seiza-result {
@@ -184,7 +192,6 @@
 
 		.seiza-result {
 			margin-left: 0;
-			margin-top: 12px;
 			width: 90%;
 			max-width: 520px;
 			height: auto;
