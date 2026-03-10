@@ -90,6 +90,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>プロフィール</title>
+</svelte:head>
+
 <div class="profile-container">
 	<div class="profile-content">
 		<div bind:this={titleElement}>

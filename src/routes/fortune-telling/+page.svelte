@@ -5,6 +5,10 @@
 	const { year, month, dayOfMonth, todayFortune } = getTodayFortune();
 </script>
 
+<svelte:head>
+	<title>星座占い</title>
+</svelte:head>
+
 <div class="fortune-container">
 	<header class="text-center">
 		<h1 class="text-4xl font-bold tracking-tight">星座占い</h1>

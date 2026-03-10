@@ -65,6 +65,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>星座早見盤</title>
+</svelte:head>
+
 <div class="content">
 	<!-- イントロダクション -->
 	<div bind:this={introElement}>
