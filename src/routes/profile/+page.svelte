@@ -12,7 +12,7 @@
 1950年代（昭和20年代後半〜30年代）になり、宇宙への関心が高まったことで、学校教育や一般向けに多様な製品が広く普及しました。
 そんな100年以上の長い歴史のあるアイテムを、最新のWeb技術で再現してみました。
 ぜひ色々触ってみてください！`,
-		github: 'https://github.com/fewblocks',
+		github: 'https://github.com/fewblocks/seiza',
 		qiita: 'https://qiita.com/mark_posts_stocker'
 	};
 
